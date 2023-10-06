@@ -1,0 +1,527 @@
+Contents:
+
+1.Objects
+2.Create New Objects Using New Method
+3.Array and Object JSON iteration
+4.Array & Object Destructuring 
+5.Difference between with Destructuring & without Destructuring
+6.Strict in Javascript
+7.object.this keyword
+
+*************************************************************************************************************************
+
+1.Objects:
+
+what is objects?
+
+===>Object is called real time entity(touch and feel).
+
+===>objects always declared in key-value pairs.
+
+===>Js objects are data structures used to store and organize data.
+
+===>Objects are variables too.
+
+===>But object contains many values & can be with different datatypes.
+
+===>Syntax:
+    var/let/const objectname =
+    {
+       key: value
+    }
+
+===>Example:
+
+    var/let/const person =
+    {
+        name : "Rajini",
+        nick : "Superstar",
+        age  : 70,
+        profe: "actor"
+    }
+    
+i.e
+===>A car has properties like weight and color & methods like start and stop.
+
+===>All car has same method but prop differ from car to car.
+
+*************************************************************************************************************************
+
+2.Create New Objects Using New Method
+
+===>Syntax:
+    var/let/const objectname =
+    {
+       key: value
+    }
+
+===>Example:
+       
+                    HOW TO DECLARED THE OBJECTS?
+                    
+                                2 ways
+
+        (1)curly brackets{}            (2)using the new keyword(CONSTRUCTOR Method)
+
+        const person ={                const person = new Object();
+        name: "Rajini",                person.name  = "Rajini";
+        age: 45,                       person.age   = 45;
+        occupation: "actor"            person.occupation = "actor";
+        }
+    
+                    HOW TO PRINT THE OBJECTS?
+                          
+                            2 ways
+
+        (1)dot notation                    (2)square brackets
+                        
+        console.log(person.name);          console.log(person["name"]);
+        // Rajini                          // Rajini
+        console.log(person.age);           console.log(person["age"]);
+        //45                               // 45
+        console.log(person.occupation);    console.log(person["occupation"]);
+        //actor                            // actor
+
+
+                    HOW TO MODIFYING(EDITING) THE OBJECTS?
+                    
+                            2 ways
+
+        (1)dot notation                (2)square brackets
+
+        const person ={                const person = new Object();
+        name: "Rajini",                person.name  = "Rajini";
+        age: 45,                       person.age   = 45;
+        occupation: "actor"            person.occupation = "actor";
+        }
+        person.name= "Kamal",          person["age"]=60;
+        console.log(person);           console.log(person);
+   
+        //{name: "Kamal",age: 45,occupation: "actor"}      
+        //{name: "Kamal",age: 60,occupation: "actor"}  
+
+
+                    HOW TO ADDING A NEW PROPERTY?
+
+        const person ={name: "Kamal",age: 60,occupation: "actor"}  
+
+        person.moviename= "ANBE SIVAM",          
+        console.log(person);           
+
+        //{name: "Kamal",age: 60,occupation: "actor",moviename: "ANBE SIVAM"}     
+
+
+                    HOW TO DELETED AN ONE PROPERTY?
+
+        const person ={name: "Kamal",age: 60,occupation: "actor",moviename: "ANBE SIVAM"}  
+
+        delete person.moviename;          
+        console.log(person);           
+
+        //{name: "Kamal",age: 60,occupation: "actor"}   
+
+*************************************************************************************************************************
+
+3.Array and Object JSON iteration
+
+what is JSON?
+
+===>JSON stands for Java Script Object Notation
+
+===>is a lightweight data interchange format.
+   data ஐ பரிமாற்றம்(interchange) செய்ய பயன்படுகிறது.
+
+===>It uses key value pairs.
+
+===>similar to object
+         இதுவும் கிட்டத்தட்ட object ஐ போன்றது.
+
+===>The synatx consists of 2 types {} is for object json , [] is for array json.
+    JSON ஆனது இரண்டு வழிகளிலும் உள்ளது.Object JSON {} , Array JSON [] வழியிலும் உள்ளது.
+
+                    ***************************************************************** 
+
+====>JSON Object Syntax:
+
+===>Example:
+    const person={
+       name: "kamal",
+       age:60
+    }
+console.log(person);   //{ name: 'kamal', age: 60 }
+
+                    ***************************************************************** 
+
+===>JSON Array Syntax:
+
+===>Example:
+    const fruits = ["apple","banana","orange"]
+    console.log(fruits[1]);   //banana
+ 
+                    ***************************************************************** 
+
+Methods of convert an one JSON datatype?
+===>(1)Parse JSON       (2)JSON stringify
+
+what is Parse JSON?
+
+===>to convert a json string into a javascript object.
+    JSON string ஐ Javascript Object ஆக மாற்றி தரும்.
+
+===>Synatx: JSON.parse()
+
+===>Example:
+
+   const a = '{"name":"kamal","age":60}'; 
+   console.log(a);           //{"name":"kamal","age":60} JSON string ஆக உள்ளது.
+   var b = JSON.parse(a);
+   console.log(b);           //{ name: 'kamal', age: 60 } Javascript Object ஆக மாறி வருகிறது.
+
+                    ***************************************************************** 
+
+what is JSON stringify?
+
+===>to convert a javascript object into a json string.
+    Javascript Object ஐ JSON string ஆக மாற்றி தரும்.
+
+===>Synatx: JSON.stringify()
+
+===>Example:
+
+    const c = {
+        name: "kamal",
+        age: 60
+    }
+    console.log(c)                 //{ name: 'kamal', age: 60} Javascript Object ஆக உள்ளது.
+    const d = JSON.stringify(c);
+    console.log(d);                //{"name":"kamal","age":60} JSON string ஆக மாறி வருகிறது.
+
+
+===>Summary:
+
+                (1)Parse JSON                            (2)JSON stringify
+
+     JSON string to Javascript Object               Javascript Object to JSON string 
+
+     Synatx: JSON.parse()                           Synatx: JSON.stringify()
+        
+     const a = '{"name":"kamal","age":60}';         const c = {
+                                                       name: "kamal",                
+     var b = JSON.parse(a);                            age: 60
+     console.log(b);                                 }       
+                                                    const d = JSON.stringify(c);
+                                                    console.log(d);
+
+    //{ name: 'kamal', age: 60 }                    //{"name":"kamal","age":60} 
+    Javascript Object ஆக மாறி வருகிறது.                                      JSON string ஆக மாறி வருகிறது.
+
+                    ***************************************************************** 
+
+what is Nested JSON object?
+
+===> 2 objects created in one program is called Nested JSON object.
+
+===>Example:
+
+    var person = {
+        "name":"kamal",
+        "age" :60,
+        "occupation":"actor",
+        "address": {
+            "city" : "Erode",
+            "pincode" : 638011
+        }
+    }
+    console.log(person);  //{ name: 'kamal',age: 60,occupation: 'actor',address: { city: 'Erode', pincode: 638011 } }
+                         //JSON string ஐ Javascript Object ஆக மாற்றி தருகிறது.
+
+    console.log(person.address.city); //Erode
+
+                    ***************************************************************** 
+
+what is Nested JSON Array?
+
+===>2 objects created in one Array.
+          ஒரு Array க்குள் இரண்டு objects வரும்போது அதை Nested JSON Array என்று கூறுகிறோம்.
+
+===>Example:
+
+    var person = [
+        {
+            "name":"kamal",
+            "age":60
+        },
+        {
+            "name":"rajini",
+            "age":55
+        },
+        {
+            "name":"vijay",
+            "age":40
+        }
+    ]
+    console.log(person);         //[{…}, {…}]  ===> [ { name: 'kamal', age: 60 }, { name: 'rajini', age: 55 },{ name: 'vijay', age: 40 } ]
+    console.log(person[0].name); //kamal
+    console.log(person[1].age);  //55
+    console.log(person[2].name); //vijay
+
+*************************************************************************************************************************
+
+4.Array & Object Destructuring 
+
+===>Destructuring சிதைப்பது.
+
+===>extract values from array.
+
+===>it is a powerful features.
+
+===>ES6 features
+
+                 ***************************************************************** 
+
+what is Array Destructuring?
+
+===>Example:
+
+    const arr = [1,2,3];
+    const[a,b,c] = arr;
+    console.log(a);    //1   
+    console.log(b);    //2   
+    console.log(c);    //3
+
+===>console.log(arr[0])
+    console.log(arr[1])
+    console.log(arr[2])  
+          இவ்வாறு தருவதற்கு பதிலாக மேற்குறிப்பிட்டவாறு ஒரு variable ஐ declare செய்து அதன் மூலம் நம்மால் output வாங்க முடியும்.
+          இதற்கு Array Destructure என்று பெயர்.
+
+===>const arr = ["1","2",3]; 
+    console.log(a);    //1   
+    console.log(b);    //2  
+    Arrayக்குள் இருக்கும் input ஒரு string ஆக இருந்தால் வரும் output ஆனது highlited ஆக வரும்.
+
+===>const arr = [1,2,3];
+    const[a,b,c,d=4] = arr;
+    console.log(a);    //1   
+    console.log(b);    //2   
+    console.log(c);    //3
+    console.log(d);    //4 
+          இவ்வாறு variable ஐ declare செய்து அதற்கான valueயும் assign செய்து output ல் பெற முடியும்.
+
+===>const arr = [1,2,3];
+    const[a,b,c=5,d=4] = arr;
+    console.log(a);    //1   
+    console.log(b);    //2   
+    console.log(c);    //3
+    console.log(d);    //4 
+
+    because c value already assigned in array.
+           புதிதாக ஒரு variable ஐ declare செய்து அதற்கான valueயும் assign செய்யலாம்.
+          ஆனால் already உள்ள variable ன் value ஐ மாற்ற முடியாது.
+
+                ***************************************************************** 
+
+what is Object Destructuring?
+
+===>Syntax:
+    const{key}=objectname
+
+===>Example:
+    const obj = {
+        name: "KHOLI",
+        age:35,
+    }
+    
+       //Object Destructuring
+    
+    const {name,age}= obj;  // Syntax : const{key}=objectname                        
+    console.log(name);      //KHOLI
+    console.log(age);       //35
+
+                ***************************************************************** 
+
+what is Nested Object Destructuring?
+
+===>Example1:
+
+    const obj = {
+       name: "KHOLI",
+       age:35,
+    address:{
+        city: "Erode",
+        pin: 638011
+        }
+    }
+    
+    //Nested Object Destructuring
+
+    const {name,age,address:{city,pin}}= obj;    //Syntax : const{key}=objectname 
+    console.log(name);                           //KHOLI
+    console.log(age);                            //35
+    console.log(city);                           //Erode
+    console.log(pin);                            //638011
+
+
+===>Example2:
+
+    const obj = {
+       name: "KHOLI",
+    address:{
+        city: "Erode",
+        pin: 638011
+        }
+    }
+
+    //Nested Object Destructuring
+
+    const {name,age=35,address:{city,pin}}= obj;    //Syntax : const{key}=objectname 
+    console.log(name);                              //KHOLI
+    console.log(age);                               //35
+    console.log(city);                              //Erode
+    console.log(pin);                              //638011
+          புதிதாக ஒரு variable ஐ declare செய்து அதற்கான valueயும் assign செய்யலாம்.
+
+
+==>Rename can also be used given below.This applies only to object.
+        கீழ்க்கண்டவாறு rename கொடுத்தும் பயன்படுத்தலாம்.இது object க்கு மட்டும் பொருந்தும்.
+
+    const {name:myname,age,address:{city,pin}}= obj;    //Syntax : const{key}=objectname 
+    console.log(myname);                                //KHOLI   
+
+*************************************************************************************************************************
+
+5.Difference between with Destructuring & without Destructuring
+
+
+===>Example:
+
+    const obj = {
+        name: "KHOLI",
+        age:35,
+        address:{
+           city: "Erode",
+           pin: 638011
+           }
+        }
+
+===>Normal Object calling or without Destructuring
+
+    console.log(obj.name);              //KHOLI
+    console.log(obj.age);               //35          
+    console.log(obj.address.city)       //Erode            
+    console.log(obj.address.pin)        //638011        
+
+===>with Destructuring
+
+    const {name,age=35,address:{city,pin}}= obj;    //Syntax : const{key}=objectname 
+    console.log(name);                              //KHOLI
+    console.log(age);                               //35
+    console.log(city);                              //Erode
+    console.log(pin);                              //638011
+
+*************************************************************************************************************************
+
+6.what is Strict in Javascript?
+
+===>Strict means கண்டிப்பாக.
+
+===>Javascript ல் variables ஐ செய்வது,assign செய்வது,curly braces,including semicolon and  etc., கொடுப்பது போன்றவை எல்லாம் சரியாக இருக்க வேண்டும்.
+          அப்பொழுதுதான் output சரியாக வரும்.
+          அதாவது program ஆனது மிகச் சரியாக இருக்க வேண்டும்.
+
+===>Example:
+
+    without strict mode
+    fullname = "kamal"
+    console.log(fullname)       // The output is "kamal"
+
+    with strict mode
+    'use strict';              ===> keyword & given the first line.
+    fullname = "kamal"
+    console.log(fullname)      // The output is ERROR because the code is safety by user side.
+
+*************************************************************************************************************************
+
+7.what is object.this keyword?
+
+===>this keyword refers to an object
+
+===>Which object depends on how this is being invoked(used or called)
+
+1. Using "this" keyword alone, refers to global object
+2. In regular function , refers to global object
+3. In a function in strict mode('use strict'), "this" is undefined.
+4. In a method, "this" refers to the owner object.
+
+
+
+1.Using "this" keyword alone, refers to global object
+
+===>this keyword refers to a particular object(global object).
+    this என்பது ஒரு global object ஐ குறிக்கிறது.
+
+===>வெறும் console.log(this); என்று தரும்போது window என்ற global object மட்டும் வரும்.அதில் உள்ள properties ஐ காட்டும். 
+    //{window: Window, self: Window, document: document, name: '', location: Location and etc}
+
+
+2.In regular function , refers to global object
+
+===>It refers to a global object even if passed inside a function.
+          ஒரு function க்குள் கொடுத்தாலும் this என்பது ஒரு global object ஐ குறிக்கிறது.
+
+    Example:
+
+    const a = function(){
+    console.log("hello world");
+    console.log(this)
+}
+a();                               //hello world
+                                   //{window: Window, self: Window, document: document, name: '', location: Location and etc}
+
+
+3. In a function in strict mode , "this" is undefined.
+
+===>When using this keyword inside a function in strict mode, the output is "undefined".
+    strict mode ல் ஒரு function க்குள் this keyword ஐ பயன்படுத்தும் போது output ஆனது undefined என்று வரும்.
+
+===>Example:
+
+    'use strict';
+    const a = function(){
+    console.log("hello world");
+    console.log(this)
+    }
+    a();                           //hello world
+                                   //undefined
+
+
+
+4.In a method, "this" refers to the owner object.   
+
+===>Example:
+
+    const person = {
+        name : "DHONI",
+        age: 40,
+        occupation: "cricket",
+        detail: function(){
+            console.log(`I love ❤ ${this.name}`)
+        }
+    }
+    console.log(person.detail());        //I love ❤ DHONI
+
+    //console.log(`I love ❤ ${this.occupation}`)  //I love ❤ cricket.
+
+*************************************************************************************************************************
+
+Javascript Object methods
+
+1.Object.assign();
+2.Object.create();
+3.Object.entries();
+4.Object.freeze();
+5.Object.keys();
+6.Object.values();
+7.Object.seal();
+
+*************************************************************************************************************************
